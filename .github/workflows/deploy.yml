@@ -12,6 +12,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: debug
+      env:
+        HMM: ${{ secrets.HMM }}
+      run: |
+        echo "$HMM" > hmm.txt
+        cat hmm.txt
+        echo "hello" >> hmm.txt
+        cat hmm.txt
+
     - name: install system dependencies
       run: |
         sudo apt update
