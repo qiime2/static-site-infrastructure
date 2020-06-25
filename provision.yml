@@ -1,0 +1,6 @@
+---
+
+- name: set up web services
+  hosts: all
+  roles:
+    - ufw
