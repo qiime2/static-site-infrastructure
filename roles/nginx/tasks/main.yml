@@ -1,0 +1,23 @@
+---
+
+- name: get nginx apt key
+  apt_key:
+    url: https://nginx.org/keys/nginx_signing.key
+    state: present
+
+- name: set up nginx apt repo
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+  with_items:
+    - deb http://nginx.org/packages/ubuntu/ xenial nginx
+    - deb-src http://nginx.org/packages/ubuntu/ xenial nginx
+
+- name: install nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: true
+  notify:
+    - stop nginx
+    - start nginx
