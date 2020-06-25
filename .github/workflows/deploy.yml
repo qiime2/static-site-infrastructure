@@ -12,17 +12,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: install ansible, ansible-lint
+    - name: install ansible
       run: |
         sudo apt update
         sudo apt install software-properties-common
         sudo apt-add-repository --yes --update ppa:ansible/ansible
         sudo apt install ansible
 
-        pip3 install setuptools
-        pip3 install wheel
-        pip3 install ansible-lint
-
-    - name: lint ansible playbook(s)
-      run: |
+    - name: ansible-lint
+        python3 -m venv venv
+        source venv/bin/activate
+        which pip
+        pip install ansible-lint
         ansible-lint provision.yml
