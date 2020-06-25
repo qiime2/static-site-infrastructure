@@ -38,6 +38,7 @@ jobs:
     - name: prepare ssh key
       env:
         SSH_PRIVATE_KEY: "${{ secrets.SSH_PRIVATE_KEY }}"
+      shell: bash -l {0}
       run: |
         echo "$SSH_PRIVATE_KEY" > key.pem
         chmod 600 key.pem
