@@ -35,24 +35,14 @@ jobs:
     # TODO: guard the following steps from running on PRs, but
     # for now leave unchecked, that way I can debug during dev.
 
-    - name: debug
-      env:
-        DEBUGGING_VAR: "${{ secrets.DEBUGGING_VAR }}"
-      run: echo $DEBUGGING_VAR
-
-    - name: debug2
-      env:
-        DEBUGGING_VAR: hello
-      run: echo $DEBUGGING_VAR
- 
     - name: prepare ssh key
       env:
         SSH_PRIVATE_KEY: "${{ secrets.SSH_PRIVATE_KEY }}"
       run: |
         echo "$SSH_PRIVATE_KEY" > key.pem
         chmod 600 key.pem
-        cat key.pem
-        less key.pem
 
     - name: provision server(s)
-      run: ansible-playbook -i inventory.yml --private-key key.pem provision.yml
+      env:
+        SSH_USER: "${{ secrets.SSH_USER }}"
+      run: ansible-playbook -i inventory.yml --private-key=key.pem -u "$SSH_USER" provision.yml
