@@ -18,6 +18,34 @@
     name: nginx
     state: present
     update_cache: true
+
+- name: remove default nginx configuration
+  file:
+    path: /etc/nginx/conf.d/default.conf
+    state: absent
   notify:
     - stop nginx
     - start nginx
+
+- name: copy qiime2.org certs
+  copy:
+    src: "{{ item }}"
+    dest: /etc/ssl
+  with_items:
+    - "*.qiime2.org.chained.crt"
+    - "*.qiime2.org.key"
+
+- name: copy nginx configuration
+  template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify:
+    - stop nginx
+    - start nginx
+
+- name: create subdomain dirs
+  file:
+    path: "/usr/share/nginx/html/{{ item }}"
+    state: directory
+  with_items:
+      - docs.qiime2.org
