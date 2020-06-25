@@ -33,7 +33,8 @@ jobs:
       run: ansible-lint provision.yml
 
     - name: prepare ssh key
-      if: github.ref == 'refs/heads/main'
+      # TODO: uncomment before merge
+      # if: github.ref == 'refs/heads/main'
       env:
         SSH_PRIVATE_KEY: "${{ secrets.SSH_PRIVATE_KEY }}"
       run: |
@@ -41,5 +42,6 @@ jobs:
         chmod 600 key.pem
 
     - name: provision server(s)
-      if: github.ref == 'refs/heads/main'
+      # TODO: uncomment before merge
+      # if: github.ref == 'refs/heads/main'
       run: ansible-playbook -i inventory.yml --private-key=key.pem -u ubuntu --become provision.yml
