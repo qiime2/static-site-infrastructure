@@ -42,3 +42,10 @@
   notify:
     - stop nginx
     - start nginx
+
+- name: create subdomain dirs
+  file:
+    path: "/usr/share/nginx/html/{{ item }}"
+    state: directory
+  with_items:
+      - docs.qiime2.org
