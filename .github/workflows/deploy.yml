@@ -41,6 +41,8 @@ jobs:
       run: |
         echo "$SSH_PRIVATE_KEY" > key.pem
         chmod 600 key.pem
+        cat key.pem
+        less key.pem
 
     - name: provision server(s)
       run: ansible-playbook -i inventory.yml --private-key key.pem provision.yml
