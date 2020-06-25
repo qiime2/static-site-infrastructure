@@ -32,17 +32,17 @@ jobs:
     - name: ansible-lint
       run: ansible-lint provision.yml
 
-    - name: ansible-check
-      run: ansible-playbook provision.yml --check
-
     # TODO: guard the following steps from running on PRs, but
     # for now leave unchecked, that way I can debug during dev.
 
     - name: prepare inventory
-      run: echo "${{ secrets.inventory }}" > inventory.yml
+      run: echo "${{ secrets.INVENTORY }}" > inventory.yml
 
     - name: prepare ssh key
-      run: echo "${{ secrets.ssh_private_key }}" > key.pem
+      run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > key.pem
+
+    - name: ansible-check
+      run: ansible-playbook provision.yml --check
 
     - name: provision server(s)
       run: ansible-playbook -i inventory.yml provision.yml
