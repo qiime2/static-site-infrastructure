@@ -39,6 +39,11 @@ jobs:
       env:
         DEBUGGING_VAR: "${{ secrets.DEBUGGING_VAR }}"
       run: echo $DEBUGGING_VAR
+
+     - name: debug
+      env:
+        DEBUGGING_VAR: hello
+      run: echo $DEBUGGING_VAR
  
     - name: prepare ssh key
       env:
