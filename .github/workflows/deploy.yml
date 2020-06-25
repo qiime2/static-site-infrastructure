@@ -15,8 +15,11 @@ jobs:
     - name: debug
       env:
         HMM: ${{ secrets.HMM }}
+      with:
+        HMM: ${{ secrets.HMM }}
       run: |
-        echo "$HMM" > hmm.txt
+        env
+        echo "$INPUT_HMM" > hmm.txt
         cat hmm.txt
         echo "hello" >> hmm.txt
         cat hmm.txt
