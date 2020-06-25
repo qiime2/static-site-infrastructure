@@ -13,13 +13,12 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: debug
+      shell: bash
       env:
-        HMM: ${{ secrets.HMM }}
-      with:
         HMM: ${{ secrets.HMM }}
       run: |
         env
-        echo "$INPUT_HMM" > hmm.txt
+        echo "$HMM" > hmm.txt
         cat hmm.txt
         echo "hello" >> hmm.txt
         cat hmm.txt
