@@ -23,6 +23,5 @@ jobs:
       run: |
         python3 -m venv venv
         source venv/bin/activate
-        which pip
-        pip install ansible-lint
+        pip install wheel ansible-lint
         ansible-lint provision.yml
