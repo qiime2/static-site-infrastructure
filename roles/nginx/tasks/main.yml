@@ -35,9 +35,9 @@
     - "*.qiime2.org.chained.crt"
     - "*.qiime2.org.key"
 
-- name: copy default nginx configuration
+- name: copy nginx configuration
   template:
-    src: main.conf
+    src: nginx.conf
     dest: /etc/nginx/nginx.conf
   notify:
     - stop nginx
