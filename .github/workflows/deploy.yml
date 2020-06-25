@@ -12,17 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: debug
-      shell: bash
-      env:
-        HMM: ${{ secrets.HMM }}
-      run: |
-        env
-        echo "$HMM" > hmm.txt
-        cat hmm.txt
-        echo "hello" >> hmm.txt
-        cat hmm.txt
-
     - name: install system dependencies
       run: |
         sudo apt update
@@ -54,4 +43,4 @@ jobs:
         chmod 600 key.pem
 
     - name: provision server(s)
-      run: ansible-playbook -i inventory.yml --private-key=key.pem -u ubuntu provision.yml
+      run: ansible-playbook -i inventory.yml --private-key=key.pem -u ubuntu --become provision.yml
