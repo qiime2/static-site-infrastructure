@@ -40,8 +40,5 @@ jobs:
         SSH_PRIVATE_KEY: "${{ secrets.SSH_PRIVATE_KEY }}"
       run: echo "$SSH_PRIVATE_KEY" > key.pem
 
-    - name: ansible-check
-      run: ansible-playbook -i inventory.yml provision.yml --check
-
     - name: provision server(s)
-      run: ansible-playbook -i inventory.yml provision.yml
+      run: ansible-playbook -i inventory.yml --private-key key.pem provision.yml
