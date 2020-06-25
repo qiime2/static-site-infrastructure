@@ -36,10 +36,14 @@ jobs:
     # for now leave unchecked, that way I can debug during dev.
 
     - name: prepare inventory
-      run: echo "${{ secrets.INVENTORY }}" > inventory.yml
+      env:
+        INVENTORY: "${{ secrets.INVENTORY }}"
+      run: echo "$INVENTORY" > inventory.yml
 
     - name: prepare ssh key
-      run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > key.pem
+      env:
+        SSH_PRIVATE_KEY: "${{ secrets.SSH_PRIVATE_KEY }}"
+      run: echo "$SSH_PRIVATE_KEY" > key.pem
 
     - name: ansible-check
       run: ansible-playbook provision.yml --check
