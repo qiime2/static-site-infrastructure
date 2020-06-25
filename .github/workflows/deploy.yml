@@ -20,6 +20,7 @@ jobs:
         sudo apt install ansible
 
     - name: ansible-lint
+      run: |
         python3 -m venv venv
         source venv/bin/activate
         which pip
