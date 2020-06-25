@@ -30,5 +30,4 @@ jobs:
         pip install ansible-lint
 
     - name: ansible-lint
-      run: |
-        ansible-lint provision.yml
+      run: ansible-lint provision.yml

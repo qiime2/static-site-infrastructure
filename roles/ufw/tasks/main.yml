@@ -1,5 +1,7 @@
 ---
 
+this should be an error
+
 - name: ufw open ports
   ufw:
     rule: allow
