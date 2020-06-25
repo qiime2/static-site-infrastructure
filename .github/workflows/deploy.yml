@@ -43,6 +43,4 @@ jobs:
         chmod 600 key.pem
 
     - name: provision server(s)
-      env:
-        SSH_USER: "${{ secrets.SSH_USER }}"
-      run: ansible-playbook -i inventory.yml --private-key=key.pem -u "$SSH_USER" provision.yml
+      run: ansible-playbook -i inventory.yml --private-key=key.pem -u ubuntu provision.yml
