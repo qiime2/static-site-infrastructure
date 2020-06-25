@@ -33,8 +33,7 @@ jobs:
       run: ansible-lint provision.yml
 
     - name: prepare ssh key
-      # TODO: uncomment before merging
-      # if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main'
       env:
         SSH_PRIVATE_KEY: "${{ secrets.SSH_PRIVATE_KEY }}"
       run: |
@@ -42,8 +41,7 @@ jobs:
         chmod 600 key.pem
 
     - name: prepare ssl files
-      # TODO: uncomment before merging
-      # if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main'
       env:
         SSL_CRT: "${{ secrets.SSL_CRT }}"
         SSL_KEY: "${{ secrets.SSL_KEY }}"
@@ -52,6 +50,5 @@ jobs:
         echo "$SSL_KEY" > "*.qiime2.org.key"
 
     - name: provision server(s)
-      # TODO: uncomment before merging
-      # if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main'
       run: ansible-playbook -i inventory.yml --private-key=key.pem -u ubuntu --become provision.yml
