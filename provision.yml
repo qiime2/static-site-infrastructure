@@ -1,0 +1,6 @@
+---
+
+- name: set up dev-docs web service
+  hosts: all
+  roles:
+    - ufw
