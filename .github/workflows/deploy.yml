@@ -35,14 +35,6 @@ jobs:
     # TODO: guard the following steps from running on PRs, but
     # for now leave unchecked, that way I can debug during dev.
 
-    - name: prepare inventory
-      env:
-        INVENTORY: "${{ secrets.INVENTORY }}"
-      run: echo "$INVENTORY" > inventory.yml
-
-    - name: debug
-      run: cat inventory.yml
-
     - name: prepare ssh key
       env:
         SSH_PRIVATE_KEY: "${{ secrets.SSH_PRIVATE_KEY }}"
