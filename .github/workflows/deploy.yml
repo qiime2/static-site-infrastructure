@@ -18,10 +18,10 @@ jobs:
         sudo apt install software-properties-common
         sudo apt-add-repository --yes --update ppa:ansible/ansible
         sudo apt install ansible
-        which pip
-        pip --version
-        pip install wheel
-        pip install ansible-lint
+        which pip3
+        pip3 --version
+        pip3 install wheel
+        pip3 install ansible-lint
 
     - name: lint ansible playbook(s)
       run: |
