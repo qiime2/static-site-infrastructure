@@ -47,8 +47,5 @@
   file:
     path: "/usr/share/nginx/html/{{ item }}"
     state: directory
-    owner: www-data
-    group: www-data
-    mode: 0775
   with_items:
       - docs.qiime2.org
