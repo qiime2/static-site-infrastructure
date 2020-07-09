@@ -49,3 +49,4 @@
     state: directory
   with_items:
       - docs.qiime2.org
+      - packages.qiime2.org
