@@ -5,7 +5,8 @@ services:
     image: library-staging-ftp:latest
     privileged: true
     volumes:
-      - ./data:/home/ftpusers
+      - /usr/share/nginx/html/packages.qiime2.org/qiime2:/home/ftpusers
+      - {{ ftp_dir }}/tls:/etc
     ports:
       - "2121:21"
       - "30000-30099:30000-30099"
