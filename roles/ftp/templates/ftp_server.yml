@@ -2,7 +2,7 @@ version: '3'
 services:
   server:
     build: .
-    image: library-ftp:latest
+    image: library-staging-ftp:latest
     privileged: true
     volumes:
       - ./data:/home/ftpusers
