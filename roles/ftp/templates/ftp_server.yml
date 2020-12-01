@@ -1,0 +1,16 @@
+version: '3'
+services:
+  server:
+    build: .
+    image: q2-ftp:latest
+    privileged: true
+    volumes:
+      - ./data:/home/ftpusers
+    ports:
+      - "2121:21"
+      - "30000-30099:30000-30099"
+    environment:
+      PUBLICHOST: {{ ansible_host }}
+      FTP_USER_NAME: {{ FTP_USER_NAME }}
+      FTP_USER_PASS: {{ FTP_USER_PASS }}
+      FTP_USER_HOME: {{ FTP_USER_HOME }}

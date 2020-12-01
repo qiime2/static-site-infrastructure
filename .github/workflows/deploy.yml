@@ -51,4 +51,18 @@ jobs:
 
     - name: provision server(s)
       if: github.ref == 'refs/heads/main'
-      run: ansible-playbook -i inventory.yml --private-key=key.pem -u ubuntu --become provision.yml
+      env:
+        FTP_USER_NAME: "${{ secrets.FTP_USER_NAME }}"
+        FTP_USER_PASS: "${{ secrets.FTP_USER_PASS }}"
+        FTP_USER_HOME: "${{ secrets.FTP_USER_HOME }}"
+      run: |
+        ansible-playbook \
+        -i inventory.yml \
+        --private-key=key.pem \
+        -u ubuntu \
+        --become \
+        -e FTP_USER_NAME=$FTP_USER_NAME \
+        -e FTP_USER_PASS=$FTP_USER_PASS \
+        -e FTP_USER_HOME=$FTP_USER_HOME \
+        provision.yml
+

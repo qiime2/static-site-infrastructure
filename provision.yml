@@ -2,7 +2,10 @@
 
 - name: set up web services
   hosts: all
+  vars:
+    ftp_dir: "ftp"
   roles:
     - ufw
     - nginx
     - docker
+    - ftp
