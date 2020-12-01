@@ -15,6 +15,7 @@
   with_items:
     - { src: "*.qiime2.org.chained.crt", dest: pure-ftpd.pem }
     - { src: "*.qiime2.org.key", dest: pure-ftpd.key }
+    
 - name: copy ftp server docker compose template
   template:
     src: "{{ item }}"
