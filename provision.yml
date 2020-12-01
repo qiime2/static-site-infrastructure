@@ -4,7 +4,7 @@
   # TODO Remove when Busywork is decommissioned
   hosts: all
   vars:
-    ftp_dir: ftp
+    ftp_dir: /home/ubuntu/ftp
   roles:
     - ufw
     - nginx
