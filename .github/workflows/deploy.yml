@@ -51,6 +51,7 @@ jobs:
 
     - name: provision server(s)
       if: github.ref == 'refs/heads/main'
+      # TODO Remove when Busywork is decommissioned (and remove `-e` below)
       env:
         FTP_USER_NAME: "${{ secrets.FTP_USER_NAME }}"
         FTP_USER_PASS: "${{ secrets.FTP_USER_PASS }}"

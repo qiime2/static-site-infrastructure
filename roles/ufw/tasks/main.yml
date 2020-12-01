@@ -7,8 +7,8 @@
     port: "{{ item }}"
     proto: tcp
   with_items:
-    - "21"
+    - "21"  # TODO Remove when Busywork is decommissioned
     - "22"
     - "80"
     - "443"
-    - "30000:30099"
+    - "30000:30099"  # TODO Remove when Busywork is decommissioned
