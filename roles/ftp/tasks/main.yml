@@ -11,7 +11,7 @@
 - name: copy qiime2.org certs
   copy:
     src: "{{ item.src }}"
-    dest: {{ ftp_dir }}/tls/{{ item.dest }}
+    dest: "{{ ftp_dir }}/tls/{{ item.dest }}"
   with_items:
     - { src: "*.qiime2.org.chained.crt", dest: pure-ftpd.pem }
     - { src: "*.qiime2.org.key", dest: pure-ftpd.key }
