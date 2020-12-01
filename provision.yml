@@ -1,8 +1,13 @@
 ---
 
 - name: set up web services
+  # TODO Remove when Busywork is decommissioned
   hosts: all
+  vars:
+    ftp_dir: ftp
   roles:
     - ufw
     - nginx
     - docker
+    # TODO Remove when Busywork is decommissioned
+    - ftp
