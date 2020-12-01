@@ -65,4 +65,3 @@ jobs:
         -e FTP_USER_PASS=$FTP_USER_PASS \
         -e FTP_USER_HOME=$FTP_USER_HOME \
         provision.yml
-
