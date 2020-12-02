@@ -10,11 +10,11 @@
 
 - name: copy qiime2.org certs
   copy:
-    src: "{{ item.src }}"
-    dest: "{{ ftp_dir }}/tls/{{ item.dest }}"
+    src: "{{ item }}"
+    dest: "{{ ftp_dir }}/tls"
   with_items:
-    - { src: "*.qiime2.org.chained.crt", dest: pure-ftpd.pem }
-    - { src: "*.qiime2.org.key", dest: pure-ftpd.key }
+    - pure-ftpd.pem
+
 - name: copy ftp server docker compose template
   template:
     src: "{{ item }}"
