@@ -48,6 +48,8 @@ jobs:
       run: |
         echo "$SSL_CRT" > "*.qiime2.org.chained.crt"
         echo "$SSL_KEY" > "*.qiime2.org.key"
+        echo "$SSL_KEY" > "pure-ftpd.pem"
+        echo "$SSL_CRT" >> "pure-ftpd.pem"
 
     - name: provision server(s)
       if: github.ref == 'refs/heads/main'

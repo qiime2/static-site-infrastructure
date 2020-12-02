@@ -6,7 +6,7 @@ services:
     privileged: true
     volumes:
       - /usr/share/nginx/html/packages.qiime2.org/qiime2:/home/ftpusers
-      - {{ ftp_dir }}/tls:/etc
+      - {{ ftp_dir }}/tls:/etc/ssl/private
     ports:
       - "2121:21"
       - "30000-30099:30000-30099"
