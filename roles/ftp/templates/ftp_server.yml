@@ -15,3 +15,5 @@ services:
       FTP_USER_NAME: {{ FTP_USER_NAME }}
       FTP_USER_PASS: {{ FTP_USER_PASS }}
       FTP_USER_HOME: {{ FTP_USER_HOME }}
+      FTP_USER_UID: {{ FTP_USER_UID }}
+      FTP_USER_GID: {{ FTP_USER_GID }}

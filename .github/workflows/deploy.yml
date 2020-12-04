@@ -58,6 +58,8 @@ jobs:
         FTP_USER_NAME: "${{ secrets.FTP_USER_NAME }}"
         FTP_USER_PASS: "${{ secrets.FTP_USER_PASS }}"
         FTP_USER_HOME: "${{ secrets.FTP_USER_HOME }}"
+        FTP_USER_UID: "${{ secrets.FTP_USER_UID }}"
+        FTP_USER_GID: "${{ secrets.FTP_USER_GID }}"
       run: |
         ansible-playbook \
         -i inventory.yml \
@@ -67,4 +69,6 @@ jobs:
         -e FTP_USER_NAME=$FTP_USER_NAME \
         -e FTP_USER_PASS=$FTP_USER_PASS \
         -e FTP_USER_HOME=$FTP_USER_HOME \
+        -e FTP_USER_UID=$FTP_USER_UID \
+        -e FTP_USER_GID=$FTP_USER_GID \
         provision.yml
