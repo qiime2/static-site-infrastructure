@@ -9,7 +9,7 @@ services:
       - {{ ftp_dir }}/tls:/etc/ssl/private
     ports:
       - "21:21"
-      - "30000-30099:30000-30099"
+      - "30000-30199:30000-30199"
     environment:
       PUBLICHOST: {{ ansible_host }}
       FTP_USER_NAME: {{ FTP_USER_NAME }}
