@@ -14,4 +14,4 @@ CMD /run.sh \
   -O w3c:/var/log/pure-ftpd/transfer.log \
   --tls=2
 
-EXPOSE 21 30000-30099
+EXPOSE 21 30000-30199
