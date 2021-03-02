@@ -16,6 +16,8 @@ jobs:
       run: |
         sudo apt update
         sudo apt install software-properties-common
+        sudo apt-add-repository --yes --update ppa:ansible/ansible
+        sudo apt install ansible
 
     - name: set up python 3.6
       uses: actions/setup-python@v2
