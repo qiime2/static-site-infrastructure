@@ -38,7 +38,7 @@ jobs:
 
     - name: prepare conda env
       run: |
-        conda create -q -p ../deploy-env -c conda-forge ansible
+        conda create -y -q -p ../deploy-env -c conda-forge ansible
 
     - name: provision server(s)
       # if: github.ref == 'refs/heads/main'
